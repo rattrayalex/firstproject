@@ -1,4 +1,4 @@
-firstproject-example
-====================
+firstproject
+============
 
 Example for Get Sailing book
