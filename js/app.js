@@ -8,7 +8,12 @@
 
   HelloWorldComponent = React.createClass({
     render: function() {
-      return div({}, h1({}, 'Hello, I come from React!'), p({}, 'Im not a big boy...'));
+      return div({
+        className: 'well',
+        style: {
+          color: 'blue'
+        }
+      }, h1({}, 'Hello, I come from React!'), p({}, 'Im not a big boy...'));
     }
   });
 

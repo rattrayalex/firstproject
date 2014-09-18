@@ -4,7 +4,11 @@ React = require "react"
 
 HelloWorldComponent = React.createClass
   render: ->
-    div {},
+    div {
+      className: 'well'
+      style:
+        color: 'blue'
+    },
       h1 {},
         'Hello, I come from React!'
       p {},
