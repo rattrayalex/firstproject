@@ -19,7 +19,9 @@
   "devDependencies": {
     "coffee-script": "^1.8.0",
     "ecstatic": "^0.5.4",
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-coffeeify": "^0.1.2",
+    "gulp-coffeelint": "^0.4.0"
   },
   "dependencies": {
     "bootstrap": "^3.2.0"
