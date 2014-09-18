@@ -7,6 +7,15 @@
   _ref = React.DOM, div = _ref.div, h1 = _ref.h1, p = _ref.p;
 
   HelloWorldComponent = React.createClass({
+    componentDidMount: function() {
+      return setInterval((function(_this) {
+        return function() {
+          return _this.setState({
+            time: new Date()
+          });
+        };
+      })(this), 1000);
+    },
     getInitialState: function() {
       return {
         time: new Date()

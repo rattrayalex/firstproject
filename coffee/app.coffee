@@ -3,6 +3,13 @@ React = require "react"
 {div, h1, p} = React.DOM
 
 HelloWorldComponent = React.createClass
+
+  componentDidMount: ->
+    setInterval =>
+      @setState
+        time: new Date()
+    , 1000
+
   getInitialState: ->
     time: new Date()
 
