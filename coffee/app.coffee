@@ -1,2 +1,12 @@
-for i in [0..10]
-  console.log "Hello, for the #{i}th time!"
+React = require "react"
+
+
+HelloWorldComponent = React.createClass
+  render: ->
+    React.DOM.div {},
+      'Hello, I come from React!'
+
+React.renderComponent(
+  HelloWorldComponent()
+  document.querySelector('.main')
+)
