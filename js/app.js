@@ -1,10 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function() {
-  var HelloWorldComponent, React, TimerComponent, div, h1, p, _ref;
+  var HelloWorldComponent, React, TimerComponent, div, h1, input, p, _ref;
 
   React = require("react");
 
-  _ref = React.DOM, div = _ref.div, h1 = _ref.h1, p = _ref.p;
+  _ref = React.DOM, div = _ref.div, h1 = _ref.h1, p = _ref.p, input = _ref.input;
 
   TimerComponent = React.createClass({
     componentDidMount: function() {
@@ -31,18 +31,33 @@
         style: {
           border: '1px solid black'
         }
-      }, "Hello, you have been here for " + rounded_sec_on_site + " seconds");
+      }, "Hello, you have been here for " + rounded_sec_on_site + " seconds, " + this.props.name);
     }
   });
 
   HelloWorldComponent = React.createClass({
+    getInitialState: function() {
+      return {
+        name: ''
+      };
+    },
+    handleChange: function(e) {
+      var name;
+      name = e.target.value;
+      return this.setState({
+        name: name
+      });
+    },
     render: function() {
       return div({
-        className: 'well',
-        style: {
-          color: 'blue'
-        }
-      }, h1({}, TimerComponent()), p({}, 'Im not a big boy...'));
+        className: 'well'
+      }, h1({}, TimerComponent({
+        name: this.state.name
+      })), p({}, 'What is your name?'), input({
+        type: 'text',
+        placeholder: 'Yacintha Johnson',
+        onChange: this.handleChange
+      }));
     }
   });
 

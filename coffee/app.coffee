@@ -1,6 +1,6 @@
 React = require "react"
 
-{div, h1, p} = React.DOM
+{div, h1, p, input} = React.DOM
 
 
 TimerComponent = React.createClass
@@ -23,21 +23,35 @@ TimerComponent = React.createClass
       style:
         border: '1px solid black'
     },
-      "Hello, you have been here for #{ rounded_sec_on_site } seconds"
+      "Hello, you have been here for
+      #{ rounded_sec_on_site } seconds,
+      #{ @props.name}"
 
 
 HelloWorldComponent = React.createClass
 
+  getInitialState: ->
+    name: ''
+
+  handleChange: (e) ->
+    name = e.target.value
+    @setState {name}
+
   render: ->
     div {
       className: 'well'
-      style:
-        color: 'blue'
     },
       h1 {},
-        TimerComponent()
+        TimerComponent {
+          name: @state.name
+        }
       p {},
-        'Im not a big boy...'
+        'What is your name?'
+      input {
+        type: 'text'
+        placeholder: 'Yacintha Johnson'
+        onChange: @handleChange
+      }
 
 React.renderComponent(
   HelloWorldComponent()
