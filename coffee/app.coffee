@@ -1,11 +1,14 @@
 React = require "react"
 
-{div} = React.DOM
+{div, h1, p} = React.DOM
 
 HelloWorldComponent = React.createClass
   render: ->
     div {},
-      'Hello, I come from React!'
+      h1 {},
+        'Hello, I come from React!'
+      p {},
+        'Im not a big boy...'
 
 React.renderComponent(
   HelloWorldComponent()
