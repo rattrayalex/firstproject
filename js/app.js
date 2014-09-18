@@ -18,16 +18,21 @@
     },
     getInitialState: function() {
       return {
+        startTime: new Date(),
         time: new Date()
       };
     },
     render: function() {
+      var ms_on_site, rounded_sec_on_site, sec_on_site;
+      ms_on_site = this.state.time - this.state.startTime;
+      sec_on_site = ms_on_site / 1000;
+      rounded_sec_on_site = Math.floor(sec_on_site);
       return div({
         className: 'well',
         style: {
           color: 'blue'
         }
-      }, h1({}, "Hello, it is now " + this.state.time), p({}, 'Im not a big boy...'));
+      }, h1({}, "Hello, you have been here for " + rounded_sec_on_site + " seconds"), p({}, 'Im not a big boy...'));
     }
   });
 
