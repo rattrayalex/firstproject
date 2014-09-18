@@ -3,6 +3,9 @@ React = require "react"
 {div, h1, p} = React.DOM
 
 HelloWorldComponent = React.createClass
+  getInitialState: ->
+    time: new Date()
+
   render: ->
     div {
       className: 'well'
@@ -10,7 +13,7 @@ HelloWorldComponent = React.createClass
         color: 'blue'
     },
       h1 {},
-        'Hello, I come from React!'
+        "Hello, it is now #{ @state.time }"
       p {},
         'Im not a big boy...'
 

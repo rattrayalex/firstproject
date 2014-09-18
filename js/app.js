@@ -7,13 +7,18 @@
   _ref = React.DOM, div = _ref.div, h1 = _ref.h1, p = _ref.p;
 
   HelloWorldComponent = React.createClass({
+    getInitialState: function() {
+      return {
+        time: new Date()
+      };
+    },
     render: function() {
       return div({
         className: 'well',
         style: {
           color: 'blue'
         }
-      }, h1({}, 'Hello, I come from React!'), p({}, 'Im not a big boy...'));
+      }, h1({}, "Hello, it is now " + this.state.time), p({}, 'Im not a big boy...'));
     }
   });
 
