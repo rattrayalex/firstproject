@@ -1,9 +1,10 @@
 React = require "react"
 
+{div} = React.DOM
 
 HelloWorldComponent = React.createClass
   render: ->
-    React.DOM.div {},
+    div {},
       'Hello, I come from React!'
 
 React.renderComponent(
