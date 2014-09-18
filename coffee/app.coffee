@@ -2,8 +2,8 @@ React = require "react"
 
 {div, h1, p} = React.DOM
 
-HelloWorldComponent = React.createClass
 
+TimerComponent = React.createClass
   componentDidMount: ->
     setInterval =>
       @setState
@@ -20,12 +20,22 @@ HelloWorldComponent = React.createClass
     rounded_sec_on_site = Math.floor( sec_on_site )
 
     div {
+      style:
+        border: '1px solid black'
+    },
+      "Hello, you have been here for #{ rounded_sec_on_site } seconds"
+
+
+HelloWorldComponent = React.createClass
+
+  render: ->
+    div {
       className: 'well'
       style:
         color: 'blue'
     },
       h1 {},
-        "Hello, you have been here for #{ rounded_sec_on_site } seconds"
+        TimerComponent()
       p {},
         'Im not a big boy...'
 
