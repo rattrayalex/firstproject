@@ -5,6 +5,7 @@ coffeelint = require "gulp-coffeelint"
 
 ecstatic = require "ecstatic"
 http = require "http"
+livereload = require "gulp-livereload"
 
 
 gulp.task "serve", ->
@@ -19,5 +20,9 @@ gulp.task "coffee", ->
     .pipe coffeelint.reporter()
     .pipe coffeeify()
     .pipe gulp.dest('js')
+    .pipe livereload()
 
-gulp.task "default", ["coffee", "serve"]
+gulp.task "watch", ->
+  gulp.watch "coffee/**/*.coffee", ["coffee"]
+
+gulp.task "default", ["coffee", "serve", "watch"]
