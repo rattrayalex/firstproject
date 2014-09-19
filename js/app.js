@@ -41,9 +41,9 @@
         name: ''
       };
     },
-    handleChange: function(e) {
+    handleChange: function() {
       var name;
-      name = e.target.value;
+      name = this.refs.name.getDOMNode().value;
       return this.setState({
         name: name
       });
@@ -56,6 +56,7 @@
       })), p({}, 'What is your name?'), input({
         type: 'text',
         placeholder: 'Yacintha Johnson',
+        ref: 'name',
         onChange: this.handleChange
       }));
     }

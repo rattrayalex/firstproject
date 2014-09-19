@@ -33,8 +33,8 @@ HelloWorldComponent = React.createClass
   getInitialState: ->
     name: ''
 
-  handleChange: (e) ->
-    name = e.target.value
+  handleChange: () ->
+    name = @refs.name.getDOMNode().value
     @setState {name}
 
   render: ->
@@ -50,6 +50,7 @@ HelloWorldComponent = React.createClass
       input {
         type: 'text'
         placeholder: 'Yacintha Johnson'
+        ref: 'name'
         onChange: @handleChange
       }
 
